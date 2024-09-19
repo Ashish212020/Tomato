@@ -1,8 +1,8 @@
 {
     "build": {
-      "commands": [
-        "npm install",
-        "npm rebuild bcrypt --build-from-source"
-      ]
+      "env": {
+        "NODE_VERSION": "18.17.1"
+      }
     }
   }
+  
