@@ -26,7 +26,7 @@ const loginUser = async (req,res)=>{
       res.json({ success: true, token });
   
     } catch (error) {
-      console.error("REGISTER ERROR:", error.message);
+      console.error("Login ERROR:", error.message);
   res.json({ success: false, message: error.message });
     }
 }
@@ -70,8 +70,8 @@ const registerUser = async (req,res) => {
        
 
      }catch(error){
-          console.log(error);
-          res.json({success:false,message:"Error"})
+          console.error("Register ERROR:", error.message);
+  res.json({ success: false, message: error.message });
      }
 }
 
