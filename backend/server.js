@@ -19,7 +19,7 @@ app.use(cors({
   origin: "https://tomato-frontend-aees.onrender.com"||"https://tomato-admin-y9yw.onrender.com",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
-})))
+}))
 
 //db connections
 connectDB();
