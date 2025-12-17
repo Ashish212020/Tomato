@@ -15,11 +15,23 @@ const port =process.env.PORT || 4000;
 
 //middleware
 app.use(express.json())
+const allowedOrigins = [
+  "https://tomato-frontend-aees.onrender.com",
+  "https://tomato-admin-y9yw.onrender.com"
+];
+
 app.use(cors({
-  origin: "https://tomato-frontend-aees.onrender.com"||"https://tomato-admin-y9yw.onrender.com",
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
-}))
+}));
+
 
 //db connections
 connectDB();
